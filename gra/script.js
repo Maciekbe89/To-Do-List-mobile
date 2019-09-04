@@ -42,8 +42,8 @@ function setUnActive(x, y) {
 
 function main() {
     drawBoard(boardWidth, boardHeight);
-    drawPlayer(playerX, playerY);
-    drawPlayer(player2X, player2Y);
+    // drawPlayer(playerX, playerY);
+    // drawPlayer(player2X, player2Y);
     drawBall(ballX, ballY);
 }
 
@@ -57,6 +57,13 @@ function drawPlayer(playerX, playerY) {
 
 function drawBall(ballX, ballY) {
     setActive(ballX, ballY);
+}
+
+function clearAll() {
+    const elements = document.querySelectorAll('.active');
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].classList.remove('active');
+    }
 }
 
 window.onload = main;
