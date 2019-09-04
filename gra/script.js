@@ -1,11 +1,12 @@
 const cellSize = 15;
 const boardHeight = 20;
 const boardWidth = 30;
-const playerX = 1;
-const playerY = 1;
-const player2X = boardWidth - 2;
-const player2Y = 1;
 const playerHeight = 4;
+let playerX = 1;
+let playerY = boardHeight / 2 - playerHeight / 2;
+let player2X = boardWidth - 2;
+let player2Y = boardHeight / 2 - playerHeight / 2;
+
 let ballX = boardWidth / 2;
 let ballY = boardHeight / 2;
 let ballVelX = 1;
@@ -42,16 +43,11 @@ function setUnActive(x, y) {
     cell.classList.remove('active');
 }
 
-function main() {
-    drawBoard(boardWidth, boardHeight);
-    drawPlayer(playerX, playerY);
-    drawPlayer(player2X, player2Y);
-    drawBall(ballX, ballY);
-}
+
 
 function drawPlayer(playerX, playerY) {
 
-    for (let y = playerY; y <= playerHeight; y++) {
+    for (let y = playerY; y < playerY + playerHeight; y++) {
         setActive(playerX, y);
     }
 
@@ -91,6 +87,32 @@ function tick() {
     drawBall(ballX, ballY);
 }
 
-setInterval(tick, 100);
+
+
+function main() {
+    drawBoard(boardWidth, boardHeight);
+    drawPlayer(playerX, playerY);
+    drawPlayer(player2X, player2Y);
+    drawBall(ballX, ballY);
+    setInterval(tick, 100);
+    document.addEventListener("keydown", (e) => {
+        console.log(e.keyCode);
+        if (e.keyCode === 87) {
+            playerY--;
+        }
+        if (e.keyCode === 83) {
+            playerY++;
+        }
+        if (e.keyCode === 38) {
+            player2Y--;
+        }
+        if (e.keyCode === 40) {
+            player2Y++;
+        }
+    });
+}
+
+// 87 - góra
+// 83 - dół
 
 window.onload = main;
