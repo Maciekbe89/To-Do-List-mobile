@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.square {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3vw;
+    height: 3vw;
+    border: 1px solid black;
+}
