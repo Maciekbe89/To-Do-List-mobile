@@ -6,8 +6,10 @@ const playerY = 1;
 const player2X = boardWidth - 2;
 const player2Y = 1;
 const playerHeight = 4;
-const ballX = boardWidth / 2;
-const ballY = boardHeight / 2;
+let ballX = boardWidth / 2;
+let ballY = boardHeight / 2;
+let ballVelX = 1;
+let ballVelY = 1;
 
 
 function createCell(x, y) {
@@ -42,8 +44,8 @@ function setUnActive(x, y) {
 
 function main() {
     drawBoard(boardWidth, boardHeight);
-    // drawPlayer(playerX, playerY);
-    // drawPlayer(player2X, player2Y);
+    drawPlayer(playerX, playerY);
+    drawPlayer(player2X, player2Y);
     drawBall(ballX, ballY);
 }
 
@@ -65,5 +67,30 @@ function clearAll() {
         elements[i].classList.remove('active');
     }
 }
+
+function moveBall() {
+    ballX += ballVelX;
+    ballY += ballVelY;
+    const nextCell = document.querySelector(`[data-x="${ballX}"][data-y="${ballY}"]`);
+    if (ballY < 0 || ballY >= boardHeight) {
+        ballVelY *= -1;
+        ballY += ballVelY;
+
+    }
+    if ((ballX < 0 || ballX >= boardWidth) || (nextCell && nextCell.classList.contains('active'))) {
+        ballVelX *= -1;
+        ballX += ballVelX;
+    }
+}
+
+function tick() {
+    clearAll();
+    drawPlayer(playerX, playerY);
+    drawPlayer(player2X, player2Y);
+    moveBall();
+    drawBall(ballX, ballY);
+}
+
+setInterval(tick, 100);
 
 window.onload = main;
