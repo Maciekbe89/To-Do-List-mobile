@@ -134,6 +134,12 @@ function reset() {
 
 function tick() {
     clearAll();
+    if (player2Y + playerHeight < ballY && player2Y < boardHeight - playerHeight) {
+        player2Y++;
+    }
+    if (player2Y > ballY) {
+        player2Y--;
+    }
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
     moveBall();
@@ -162,12 +168,12 @@ function main() {
         if (e.keyCode === 83 && playerY < boardHeight - playerHeight) {
             playerY++;
         }
-        if (e.keyCode === 38 && player2Y > 0) {
-            player2Y--;
-        }
-        if (e.keyCode === 40 && player2Y < boardHeight - playerHeight) {
-            player2Y++;
-        }
+        // if (e.keyCode === 38 && player2Y > 0) {
+        //     player2Y--;
+        // }
+        // if (e.keyCode === 40 && player2Y < boardHeight - playerHeight) {
+        //     player2Y++;
+        // }
     });
 }
 window.onload = main;
