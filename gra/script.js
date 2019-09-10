@@ -11,6 +11,8 @@ let ballY = boardHeight / 2;
 let ballVelX = 1;
 let ballVelY = 1;
 let intervalId;
+let scorePlayer1 = 0;
+let scorePlayer2 = 0;
 
 
 const containerDiv = document.createElement('div');
@@ -101,12 +103,15 @@ function start() {
 
 function winner() {
     if (ballX >= boardWidth) {
-        console.log('Player 1 WIN');
+        scorePlayer1++;
     }
 
     if (ballX < 0) {
-        console.log('Player 2 WIN');
+        scorePlayer2++;
     }
+
+    document.querySelector('.player1 span').innerHTML = scorePlayer1;
+    document.querySelector('.player2 span').innerHTML = scorePlayer2;
 }
 
 

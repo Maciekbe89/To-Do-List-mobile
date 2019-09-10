@@ -9,6 +9,25 @@
 
 }
 
+.player1,
+.player2 {
+    position: absolute;
+    left: 500px;
+    font-size: 28px;
+}
+
+.player1 {
+    top: 100px;
+}
+
+.player2 {
+    top: 130px;
+}
+
+span {
+    margin-left: 10px;
+}
+
 .btn {
     position: absolute;
     top: 10px;
