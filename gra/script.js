@@ -6,17 +6,20 @@ let playerX = 1;
 let playerY = boardHeight / 2 - playerHeight / 2;
 let player2X = boardWidth - 2;
 let player2Y = boardHeight / 2 - playerHeight / 2;
-
 let ballX = boardWidth / 2;
 let ballY = boardHeight / 2;
 let ballVelX = 1;
 let ballVelY = 1;
 
+const containerDiv = document.createElement('div');
+containerDiv.className = 'container';
+document.body.appendChild(containerDiv);
+
 
 function createCell(x, y) {
     const cell = document.createElement('div');
     cell.className = "square";
-    document.body.appendChild(cell);
+    containerDiv.appendChild(cell);
     cell.style.width = cellSize + 'px';
     cell.style.height = cellSize + 'px';
     cell.style.top = cellSize * y + 'px';
@@ -97,16 +100,16 @@ function main() {
     setInterval(tick, 100);
     document.addEventListener("keydown", (e) => {
         console.log(e.keyCode);
-        if (e.keyCode === 87) {
+        if (e.keyCode === 87 && playerY > 0) {
             playerY--;
         }
-        if (e.keyCode === 83) {
+        if (e.keyCode === 83 && playerY < boardHeight - playerHeight) {
             playerY++;
         }
-        if (e.keyCode === 38) {
+        if (e.keyCode === 38 && player2Y > 0) {
             player2Y--;
         }
-        if (e.keyCode === 40) {
+        if (e.keyCode === 40 && player2Y < boardHeight - playerHeight) {
             player2Y++;
         }
     });
