@@ -81,7 +81,7 @@ function moveBall() {
 
     }
     if ((ballX < 0 || ballX >= boardWidth)) {
-        stop();
+        gameOver();
     }
 
     if (nextCell && nextCell.classList.contains('active')) {
@@ -95,6 +95,7 @@ function stop() {
 }
 
 function start() {
+    stop();
     intervalId = setInterval(tick, 100);
 }
 
@@ -109,9 +110,11 @@ function reset() {
     player2Y = boardHeight / 2 - playerHeight / 2;
     ballX = boardWidth / 2;
     ballY = boardHeight / 2;
-    ballVelX = 1;
-    ballVelY = 1;
+    ballVelX = Math.random() > 0.5 ? 1 : -1;
+    ballVelY = Math.random() > 0.5 ? 1 : -1;
 }
+
+
 
 
 function tick() {
@@ -120,6 +123,12 @@ function tick() {
     drawPlayer(player2X, player2Y);
     moveBall();
     drawBall(ballX, ballY);
+}
+
+function gameOver() {
+    stop();
+    reset();
+    tick();
 }
 
 
