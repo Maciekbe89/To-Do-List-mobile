@@ -102,7 +102,16 @@ function start() {
 const btnStart = document.querySelector('.btn');
 btnStart.addEventListener('click', start);
 
-
+function reset() {
+    playerX = 1;
+    playerY = boardHeight / 2 - playerHeight / 2;
+    player2X = boardWidth - 2;
+    player2Y = boardHeight / 2 - playerHeight / 2;
+    ballX = boardWidth / 2;
+    ballY = boardHeight / 2;
+    ballVelX = 1;
+    ballVelY = 1;
+}
 
 
 function tick() {
