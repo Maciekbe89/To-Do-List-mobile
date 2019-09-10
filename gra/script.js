@@ -10,6 +10,8 @@ let ballX = boardWidth / 2;
 let ballY = boardHeight / 2;
 let ballVelX = 1;
 let ballVelY = 1;
+let intervalId;
+
 
 const containerDiv = document.createElement('div');
 containerDiv.className = 'container';
@@ -82,6 +84,10 @@ function moveBall() {
     }
 }
 
+
+
+
+
 function tick() {
     clearAll();
     drawPlayer(playerX, playerY);
@@ -90,14 +96,16 @@ function tick() {
     drawBall(ballX, ballY);
 }
 
-
+function stop() {
+    clearInterval(intervalId);
+}
 
 function main() {
     drawBoard(boardWidth, boardHeight);
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
     drawBall(ballX, ballY);
-    setInterval(tick, 100);
+    intervalId = setInterval(tick, 100);
     document.addEventListener("keydown", (e) => {
         console.log(e.keyCode);
         if (e.keyCode === 87 && playerY > 0) {
@@ -114,8 +122,4 @@ function main() {
         }
     });
 }
-
-// 87 - góra
-// 83 - dół
-
 window.onload = main;
