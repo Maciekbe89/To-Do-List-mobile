@@ -99,6 +99,16 @@ function start() {
     intervalId = setInterval(tick, 100);
 }
 
+function winner() {
+    if (ballX >= boardWidth) {
+        console.log('Player 1 WIN');
+    }
+
+    if (ballX < 0) {
+        console.log('Player 2 WIN');
+    }
+}
+
 
 const btnStart = document.querySelector('.btn');
 btnStart.addEventListener('click', start);
@@ -127,6 +137,7 @@ function tick() {
 
 function gameOver() {
     stop();
+    winner();
     reset();
     tick();
 }
