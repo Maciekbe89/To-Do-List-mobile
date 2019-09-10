@@ -9,7 +9,17 @@
 
 }
 
-.container {}
+.btn {
+    position: absolute;
+    top: 10px;
+    left: 500px;
+    border: 1px solid black;
+    padding: 20px 50px;
+    font-size: 30px;
+    font-family: arial, sans-serif;
+    cursor: pointer;
+    background-color: #fff;
+}
 
 .active {
     background-color: #000;

@@ -40,7 +40,9 @@ function drawBoard(maxX, maxY) {
 
 function setActive(x, y) {
     const cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
-    cell.classList.add('active');
+    if (cell) {
+        cell.classList.add('active');
+    }
 }
 
 function setUnActive(x, y) {
@@ -78,12 +80,27 @@ function moveBall() {
         ballY += ballVelY;
 
     }
-    if ((ballX < 0 || ballX >= boardWidth) || (nextCell && nextCell.classList.contains('active'))) {
+    if ((ballX < 0 || ballX >= boardWidth)) {
+        stop();
+    }
+
+    if (nextCell && nextCell.classList.contains('active')) {
         ballVelX *= -1;
         ballX += ballVelX;
     }
 }
 
+function stop() {
+    clearInterval(intervalId);
+}
+
+function start() {
+    intervalId = setInterval(tick, 100);
+}
+
+
+const btnStart = document.querySelector('.btn');
+btnStart.addEventListener('click', start);
 
 
 
@@ -96,16 +113,13 @@ function tick() {
     drawBall(ballX, ballY);
 }
 
-function stop() {
-    clearInterval(intervalId);
-}
 
 function main() {
     drawBoard(boardWidth, boardHeight);
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
     drawBall(ballX, ballY);
-    intervalId = setInterval(tick, 100);
+    // intervalId = setInterval(tick, 100);
     document.addEventListener("keydown", (e) => {
         console.log(e.keyCode);
         if (e.keyCode === 87 && playerY > 0) {
