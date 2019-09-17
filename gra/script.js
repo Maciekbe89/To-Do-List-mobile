@@ -2,6 +2,7 @@ const cellSize = 15;
 const boardHeight = 20;
 const boardWidth = 30;
 const playerHeight = 4;
+let isSinglePlayer = true;
 let playerX = 1;
 let playerY = boardHeight / 2 - playerHeight / 2;
 let player2X = boardWidth - 2;
@@ -99,6 +100,7 @@ function stop() {
 function start() {
     stop();
     intervalId = setInterval(tick, 100);
+    isSinglePlayer = document.querySelector('#comp').checked
 }
 
 function winner() {
@@ -131,14 +133,15 @@ function reset() {
 
 
 
-
 function tick() {
     clearAll();
-    if (player2Y + playerHeight < ballY && player2Y < boardHeight - playerHeight) {
-        player2Y += 2;
-    }
-    if (player2Y > ballY) {
-        player2Y -= 2;
+    if (isSinglePlayer) {
+        if (player2Y + playerHeight < ballY && player2Y < boardHeight - playerHeight) {
+            player2Y += 2;
+        }
+        if (player2Y > ballY) {
+            player2Y -= 2;
+        }
     }
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
@@ -161,19 +164,22 @@ function main() {
     drawBall(ballX, ballY);
     // intervalId = setInterval(tick, 100);
     document.addEventListener("keydown", (e) => {
-        console.log(e.keyCode);
+        // console.log(e.keyCode);
+
         if (e.keyCode === 87 && playerY > 0) {
             playerY--;
         }
         if (e.keyCode === 83 && playerY < boardHeight - playerHeight) {
             playerY++;
         }
-        // if (e.keyCode === 38 && player2Y > 0) {
-        //     player2Y--;
-        // }
-        // if (e.keyCode === 40 && player2Y < boardHeight - playerHeight) {
-        //     player2Y++;
-        // }
+        if (!isSinglePlayer) {
+            if (e.keyCode === 38 && player2Y > 0) {
+                player2Y--;
+            }
+            if (e.keyCode === 40 && player2Y < boardHeight - playerHeight) {
+                player2Y++;
+            }
+        }
     });
 }
 window.onload = main;
