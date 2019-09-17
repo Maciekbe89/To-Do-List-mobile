@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.square {
+    position: absolute;
+    border: 1px solid black;
+}
+
+.active {
+    background-color: #000;
+}
