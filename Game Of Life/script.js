@@ -4,7 +4,7 @@ const boardWidth = 30;
 
 
 
-function createCell(x, y) {
+function createCell(x, y, isAlive) {
     const cell = document.createElement('div');
     cell.className = "square";
     document.body.appendChild(cell);
@@ -14,12 +14,16 @@ function createCell(x, y) {
     cell.style.left = cellSize * x + 'px';
     cell.dataset.x = x;
     cell.dataset.y = y;
+    if (isAlive === true) {
+        cell.classList.add('active');
+    }
 }
 
 function drawBoard(maxX, maxY) {
     for (let x = 0; x < maxX; x++) {
         for (let y = 0; y < maxY; y++) {
-            createCell(x, y);
+            createCell(x, y, Math.random() > 0.5);
+
         }
     }
 }
