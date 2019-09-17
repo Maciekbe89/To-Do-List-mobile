@@ -104,6 +104,9 @@ function start() {
     intervalId = setInterval(tick, 100);
     isSinglePlayer = document.querySelector('#comp').checked;
     document.querySelector('form').style.display = 'none';
+    if (isSinglePlayer) {
+        document.querySelector('.player2name').textContent = `Computer:`;
+    }
 }
 
 function winner() {
@@ -115,8 +118,9 @@ function winner() {
         scorePlayer2++;
     }
 
-    document.querySelector('.player1 span').innerHTML = scorePlayer1;
-    document.querySelector('.player2 span').innerHTML = scorePlayer2;
+    document.querySelector('.player1 .score').innerHTML = scorePlayer1;
+    document.querySelector('.player2 .score').innerHTML = scorePlayer2;
+
 }
 
 
@@ -145,6 +149,9 @@ function tick() {
         if (player2Y > ballY) {
             player2Y -= 2;
         }
+
+
+
     }
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
