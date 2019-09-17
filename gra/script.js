@@ -93,6 +93,8 @@ function moveBall() {
     }
 }
 
+
+
 function stop() {
     clearInterval(intervalId);
 }
@@ -100,7 +102,8 @@ function stop() {
 function start() {
     stop();
     intervalId = setInterval(tick, 100);
-    isSinglePlayer = document.querySelector('#comp').checked
+    isSinglePlayer = document.querySelector('#comp').checked;
+    document.querySelector('form').style.display = 'none';
 }
 
 function winner() {
@@ -154,6 +157,7 @@ function gameOver() {
     winner();
     reset();
     tick();
+    document.querySelector('form').style.display = 'block';
 }
 
 
