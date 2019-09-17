@@ -23,10 +23,53 @@ function drawBoard(maxX, maxY) {
     for (let x = 0; x < maxX; x++) {
         for (let y = 0; y < maxY; y++) {
             createCell(x, y, Math.random() > 0.5);
-
         }
     }
 }
+
+function countNeighbours(x, y) {
+    let total = 0;
+
+    // x-1, y-1
+    let cell = document.querySelector(`[data-x="${x-1}"][data-y="${y-1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+
+    // x, y-1
+    cell = document.querySelector(`[data-x="${x}"][data-y="${y-1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x+1}"][data-y="${y-1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x+1}"][data-y="${y}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x+1}"][data-y="${y+1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x}"][data-y="${y+1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x-1}"][data-y="${y+1}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    cell = document.querySelector(`[data-x="${x-1}"][data-y="${y}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    return total;
+}
+
+
+
 
 function main() {
     drawBoard(boardWidth, boardHeight);
