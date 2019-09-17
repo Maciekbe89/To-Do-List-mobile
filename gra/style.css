@@ -17,11 +17,11 @@
 }
 
 .player1 {
-    top: 100px;
+    top: 180px;
 }
 
 .player2 {
-    top: 130px;
+    top: 210px;
 }
 
 span {
@@ -42,4 +42,24 @@ span {
 
 .active {
     background-color: #000;
+}
+
+.options {
+    position: absolute;
+    top: 100px;
+    left: 500px;
+    font-size: 20px;
+    z-index: 1;
+}
+
+.multiplayer {
+    position: absolute;
+    top: 130px;
+    left: 500px;
+}
+
+.computer {
+    position: absolute;
+    top: 150px;
+    left: 500px;
 }

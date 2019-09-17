@@ -135,10 +135,10 @@ function reset() {
 function tick() {
     clearAll();
     if (player2Y + playerHeight < ballY && player2Y < boardHeight - playerHeight) {
-        player2Y++;
+        player2Y += 2;
     }
     if (player2Y > ballY) {
-        player2Y--;
+        player2Y -= 2;
     }
     drawPlayer(playerX, playerY);
     drawPlayer(player2X, player2Y);
