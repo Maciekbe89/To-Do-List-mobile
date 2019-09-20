@@ -1,8 +1,23 @@
 const cellSize = 20;
+
+// const startBoard = [
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+// ];
+
 const boardHeight = 20;
 const boardWidth = 30;
 
-
+// const boardHeight = startBoard.length;
+// const boardWidth = startBoard[0].length;
 
 function createCell(x, y, isAlive) {
     const cell = document.createElement('div');
@@ -14,7 +29,7 @@ function createCell(x, y, isAlive) {
     cell.style.left = cellSize * x + 'px';
     cell.dataset.x = x;
     cell.dataset.y = y;
-    if (isAlive === true) {
+    if (isAlive) {
         cell.classList.add('active');
     }
 }
@@ -23,6 +38,7 @@ function drawBoard(maxX, maxY) {
     for (let x = 0; x < maxX; x++) {
         for (let y = 0; y < maxY; y++) {
             createCell(x, y, Math.random() > 0.5);
+            // createCell(x, y, startBoard[y][x]);
         }
     }
 }
@@ -82,16 +98,28 @@ const checkNeighbours = (x, y) => {
         } else {
             cell.classList.remove('active');
         }
-    }
-    if (!isActive) {
-        if (countNeighbours === 3) {
+    } else {
+        if (countNeighbours(x, y) === 3) {
             cell.classList.add('active');
         }
     }
 }
 
+function changeCell() {
+    for (let x = 0; x < boardWidth; x++) {
+        for (let y = 0; y < boardHeight; y++) {
+            checkNeighbours(x, y);
+        }
+    }
+}
+
+function tick() {
+    changeCell();
+}
+
 
 function main() {
     drawBoard(boardWidth, boardHeight);
+    setInterval(tick, 500);
 }
 window.onload = main;
