@@ -69,12 +69,25 @@ function countNeighbours(x, y) {
 }
 
 const checkCell = (x, y) => {
-    let total = 0;
     let cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
-    if (cell && cell.classList.contains('active')) {
-        total++;
+    return cell.classList.contains('active');
+}
+
+const checkNeighbours = (x, y) => {
+    let cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    let isActive = checkCell(x, y);
+    if (isActive) {
+        if (countNeighbours(x, y) === 2 || countNeighbours(x, y) === 3) {
+            cell.classList.add('active');
+        } else {
+            cell.classList.remove('active');
+        }
     }
-    return total;
+    if (!isActive) {
+        if (countNeighbours === 3) {
+            cell.classList.add('active');
+        }
+    }
 }
 
 
