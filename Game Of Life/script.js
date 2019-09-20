@@ -1,21 +1,13 @@
 const cellSize = 20;
 
-// const startBoard = [
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-//     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-// ];
+const startBoard = [];
 
 const boardHeight = 20;
 const boardWidth = 30;
 
+for (let i = 0; i < boardWidth; i++) {
+    startBoard[i] = [];
+}
 // const boardHeight = startBoard.length;
 // const boardWidth = startBoard[0].length;
 
@@ -38,7 +30,20 @@ function drawBoard(maxX, maxY) {
     for (let x = 0; x < maxX; x++) {
         for (let y = 0; y < maxY; y++) {
             createCell(x, y, Math.random() > 0.5);
-            // createCell(x, y, startBoard[y][x]);
+            // createCell(x, y, 0);
+        }
+    }
+}
+
+function fillBoard() {
+    for (let x = 0; x < boardWidth; x++) {
+        for (let y = 0; y < boardHeight; y++) {
+            let cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+            if (startBoard[x][y]) {
+                cell.classList.add('active');
+            } else {
+                cell.classList.remove('active');
+            }
         }
     }
 }
@@ -90,20 +95,20 @@ const checkCell = (x, y) => {
 }
 
 const checkNeighbours = (x, y) => {
-    let cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
     let isActive = checkCell(x, y);
     if (isActive) {
         if (countNeighbours(x, y) === 2 || countNeighbours(x, y) === 3) {
-            cell.classList.add('active');
+            startBoard[x][y] = 1;
         } else {
-            cell.classList.remove('active');
+            startBoard[x][y] = 0;
         }
     } else {
         if (countNeighbours(x, y) === 3) {
-            cell.classList.add('active');
+            startBoard[x][y] = 1;
         }
     }
 }
+
 
 function changeCell() {
     for (let x = 0; x < boardWidth; x++) {
@@ -115,11 +120,12 @@ function changeCell() {
 
 function tick() {
     changeCell();
+    fillBoard();
 }
 
 
 function main() {
     drawBoard(boardWidth, boardHeight);
-    setInterval(tick, 500);
+    setInterval(tick, 100);
 }
 window.onload = main;
