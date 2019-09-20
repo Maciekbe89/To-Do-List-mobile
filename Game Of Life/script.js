@@ -68,7 +68,14 @@ function countNeighbours(x, y) {
     return total;
 }
 
-
+const checkCell = (x, y) => {
+    let total = 0;
+    let cell = document.querySelector(`[data-x="${x}"][data-y="${y}"]`);
+    if (cell && cell.classList.contains('active')) {
+        total++;
+    }
+    return total;
+}
 
 
 function main() {
