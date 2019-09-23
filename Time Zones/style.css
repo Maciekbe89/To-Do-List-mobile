@@ -10,11 +10,48 @@
     height: 100vh;
     background-color: #000;
     align-content: space-around;
-    justify-content: space-around;
+    justify-content: center;
+    z-index: -1;
 }
 
 .container div {
-    width: 48%;
+    display: flex;
+    width: 550px;
     height: 48%;
     overflow: hidden;
+
+}
+
+/* .warsaw {
+    display: flex; */
+/* justify-content: center;
+    align-items: center; */
+
+
+.video {
+    position: absolute;
+    top: 7px;
+    left: 12px;
+}
+
+div.clockpl {
+    position: absolute;
+    top: 22%;
+    left: 18%;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 1;
+    font-size: 30px;
+    color: white;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+div.clockpl span {
+    display: flex;
+    align-content: center;
+    font-weight: bold;
+    font-family: arial;
 }
