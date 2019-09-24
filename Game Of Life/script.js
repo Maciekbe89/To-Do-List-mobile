@@ -128,6 +128,7 @@ function reset() {
 }
 
 function random() {
+    stop();
     for (let x = 0; x < boardWidth; x++) {
         for (let y = 0; y < boardHeight; y++) {
             startBoard[x][y] = Math.random() > 0.5 ? 0 : 1;
