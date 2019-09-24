@@ -1,7 +1,6 @@
 const cellSize = 20;
-
+let interval;
 const startBoard = [];
-
 const boardHeight = 20;
 const boardWidth = 30;
 
@@ -109,9 +108,6 @@ const checkNeighbours = (x, y) => {
     }
 }
 
-
-let interval;
-
 function stop() {
     clearInterval(interval);
 }
@@ -126,6 +122,17 @@ function reset() {
         for (let y = 0; y < boardHeight; y++) {
             startBoard[x][y] = 0;
         }
+    }
+    fillBoard();
+    stop();
+}
+
+function random() {
+    for (let x = 0; x < boardWidth; x++) {
+        for (let y = 0; y < boardHeight; y++) {
+            startBoard[x][y] = Math.random() > 0.5 ? 0 : 1;
+        }
+
     }
     fillBoard();
 }
@@ -144,6 +151,7 @@ function position(e) {
     fillBoard();
 }
 
+
 document.body.addEventListener('click', position);
 
 const btnStart = document.querySelector('button.start');
@@ -154,6 +162,9 @@ btnPause.addEventListener('click', stop);
 
 const btnReset = document.querySelector('button.reset');
 btnReset.addEventListener('click', reset);
+
+const btnRandom = document.querySelector('button.random');
+btnRandom.addEventListener('click', random);
 
 
 function changeCell() {

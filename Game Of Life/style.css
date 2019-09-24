@@ -14,7 +14,7 @@
 
 button {
     position: absolute;
-    top: 67%;
+    left: 620px;
     width: 150px;
     height: 70px;
     font-size: 26px;
@@ -23,13 +23,17 @@ button {
 }
 
 .start {
-    left: 50px;
+    top: 30px;
 }
 
 .pause {
-    left: 220px;
+    top: 120px;
 }
 
 .reset {
-    left: 390px;
+    top: 210px;
+}
+
+.random {
+    top: 300px;
 }
