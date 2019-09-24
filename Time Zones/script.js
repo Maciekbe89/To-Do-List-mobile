@@ -8,8 +8,6 @@ const clockPl = () => {
     document.querySelector('.clockpl span').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-setInterval(clockPl, 1000);
-
 const clockNy = () => {
 
     const time = new Date(new Date().toLocaleString("en-US", {
@@ -23,8 +21,6 @@ const clockNy = () => {
     document.querySelector('.clockny span').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-setInterval(clockNy, 1000);
-
 const clockRu = () => {
 
     const time = new Date(new Date().toLocaleString("en-RU", {
@@ -36,8 +32,6 @@ const clockRu = () => {
 
     document.querySelector('.clockru span').textContent = `${hours}:${minutes}:${seconds}`;
 }
-
-setInterval(clockRu, 1000);
 
 const clockCh = () => {
 
@@ -51,4 +45,7 @@ const clockCh = () => {
     document.querySelector('.clockch span').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
+setInterval(clockPl, 1000);
+setInterval(clockNy, 1000);
+setInterval(clockRu, 1000);
 setInterval(clockCh, 1000);
