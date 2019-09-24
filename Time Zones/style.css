@@ -19,25 +19,20 @@
     width: 550px;
     height: 48%;
     overflow: hidden;
+    position: relative;
 
 }
 
-/* .warsaw {
-    display: flex; */
-/* justify-content: center;
-    align-items: center; */
-
-
-.video {
+div.clockpl,
+div.clockny,
+div.clockru,
+div.clockch {
+    display: flex;
+    justify-content: center;
     position: absolute;
-    top: 7px;
-    left: 12px;
-}
-
-div.clockpl {
-    position: absolute;
-    top: 22%;
-    left: 18%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 200px;
     height: 50px;
     background-color: rgba(0, 0, 0, .5);
@@ -45,13 +40,17 @@ div.clockpl {
     font-size: 30px;
     color: white;
     line-height: 50px;
-    display: flex;
-    justify-content: center;
-}
-
-div.clockpl span {
-    display: flex;
     align-content: center;
     font-weight: bold;
     font-family: arial;
+
 }
+
+/* div.clockpl span,
+div.clockny span,
+div.clockru span {
+    align-content: center;
+    font-weight: bold;
+    font-family: arial;
+
+} */
