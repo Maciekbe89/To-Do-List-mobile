@@ -110,6 +110,52 @@ const checkNeighbours = (x, y) => {
 }
 
 
+let interval;
+
+function stop() {
+    clearInterval(interval);
+}
+
+function start() {
+    stop();
+    interval = setInterval(tick, 100);
+}
+
+function reset() {
+    for (let x = 0; x < boardWidth; x++) {
+        for (let y = 0; y < boardHeight; y++) {
+            startBoard[x][y] = 0;
+        }
+    }
+    fillBoard();
+}
+
+function position(e) {
+    if (!e.target.dataset.x || !e.target.dataset.y) {
+        return;
+    }
+    const x = e.target.dataset.x;
+    const y = e.target.dataset.y;
+    if (startBoard[x][y] === 0) {
+        startBoard[x][y] = 1;
+    } else {
+        startBoard[x][y] = 0;
+    }
+    fillBoard();
+}
+
+document.body.addEventListener('click', position);
+
+const btnStart = document.querySelector('button.start');
+btnStart.addEventListener('click', start);
+
+const btnPause = document.querySelector('button.pause');
+btnPause.addEventListener('click', stop);
+
+const btnReset = document.querySelector('button.reset');
+btnReset.addEventListener('click', reset);
+
+
 function changeCell() {
     for (let x = 0; x < boardWidth; x++) {
         for (let y = 0; y < boardHeight; y++) {
@@ -126,6 +172,5 @@ function tick() {
 
 function main() {
     drawBoard(boardWidth, boardHeight);
-    setInterval(tick, 100);
 }
 window.onload = main;
