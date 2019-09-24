@@ -11,3 +11,25 @@
 .active {
     background-color: #000;
 }
+
+button {
+    position: absolute;
+    top: 67%;
+    width: 150px;
+    height: 70px;
+    font-size: 26px;
+    font-family: arial;
+    cursor: pointer;
+}
+
+.start {
+    left: 50px;
+}
+
+.pause {
+    left: 220px;
+}
+
+.reset {
+    left: 390px;
+}
