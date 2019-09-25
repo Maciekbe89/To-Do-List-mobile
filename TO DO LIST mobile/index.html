@@ -14,12 +14,19 @@
 <body>
     <h1>ToDoList <i class="fas fa-clipboard-list"></i></h1>
     <section class='container'>
-        <input class="add" type="text" placeholder="add task...">
-        <button><i class="fas fa-plus-circle"></i></button>
-        <input class="search" type="text" placeholder="search task...">
-        <button><i class="fas fa-search"></i></button>
-
+        <form action="">
+            <input class="add" type="text" placeholder="add task...">
+            <button><i class="fas fa-plus-circle"></i></button>
+        </form>
+        <div>
+            <input class="search" type="text" placeholder="search task...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
     </section>
+    <div class="tasks">
+        <h2>Number of tasks: <span>0</span></h2>
+        <ul></ul>
+    </div>
 
     <script src="script.js"></script>
 </body>
