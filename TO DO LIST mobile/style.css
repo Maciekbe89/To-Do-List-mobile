@@ -12,7 +12,7 @@ h1 {
     font-family: 'kaushan script';
     text-align: center;
     color: #F2CB05;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .fa-clipboard-list {
@@ -103,4 +103,46 @@ i {
         padding: 12px;
         margin: 20px 10px 20px 0;
     }
+
+    input.add::placeholder,
+    input.search::placeholder {
+        font-size: 12px;
+    }
+
+    h1 {
+        font-size: 26px;
+
+    }
 }
+
+@media (orientation: portrait) and (min-width: 410px) {
+
+    input.add,
+    input.search {
+        width: 300px;
+        padding: 20px;
+        margin: 30px 10px 30px 0;
+    }
+
+    input.add::placeholder,
+    input.search::placeholder {
+        font-size: 17px;
+    }
+
+    .fa-plus-circle,
+    .fa-search,
+    .fa-minus-circle {
+        font-size: 30px;
+    }
+
+    .task {
+        font-size: 24px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
