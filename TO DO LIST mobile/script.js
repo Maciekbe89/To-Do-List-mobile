@@ -8,7 +8,11 @@ const inputAdd = document.querySelector('input.add');
 
 const removeTask = (e) => {
     e.target.parentNode.remove();
+    const index = e.target.parentNode.dataset.key;
+    toDoList.splice(index, 1)
+    console.log(toDoList);
     taskNumber.textContent = listItems.length;
+    renderList();
 }
 
 const addTask = (e) => {
@@ -18,11 +22,20 @@ const addTask = (e) => {
     const task = document.createElement('li');
     task.className = 'task';
     task.innerHTML = '<i class="fas fa-dot-circle"></i>' + titleTask + ' <button><i class="fas fa-minus-circle"></i></button>';
+    toDoList.push(task)
+    renderList()
     ul.appendChild(task);
     inputAdd.value = '';
-
     taskNumber.textContent = listItems.length;
     task.querySelector('button').addEventListener('click', removeTask);
+}
+
+const renderList = () => {
+    ul.textContent = "";
+    toDoList.forEach((toDoElement, key) => {
+        toDoElement.dataset.key = key;
+        ul.appendChild(toDoElement);
+    })
 }
 
 const inputSearch = document.querySelector('input.search');
