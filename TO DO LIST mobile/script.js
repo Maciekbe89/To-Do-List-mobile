@@ -17,8 +17,7 @@ const addTask = (e) => {
     if (titleTask === '') return;
     const task = document.createElement('li');
     task.className = 'task';
-    task.innerHTML = titleTask + '<button>Usuń</button>';
-
+    task.innerHTML = '<i class="fas fa-dot-circle"></i>' + titleTask + ' <button><i class="fas fa-minus-circle"></i></button>';
     ul.appendChild(task);
     inputAdd.value = '';
 

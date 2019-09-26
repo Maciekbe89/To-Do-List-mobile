@@ -34,7 +34,7 @@ input.search {
     background-color: #737373;
     border: none;
     padding: 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     color: white;
 }
 
@@ -56,7 +56,16 @@ button {
     color: #F2CB05;
     font-size: 26px;
     padding: 15px;
+}
 
+.fa-minus-circle {
+    color: #F2CB05;
+    font-size: 26px;
+}
+
+.fa-dot-circle {
+    color: #F2CB05;
+    font-size: 10px;
 }
 
 h2 {
@@ -64,4 +73,16 @@ h2 {
     color: #737373;
     text-align: center;
     margin: 10px 0;
+}
+
+i {
+    pointer-events: none;
+}
+
+.task {
+    display: flex;
+    font-family: 'oswald', sans-serif;
+    font-size: 20px;
+    align-items: center;
+    justify-content: space-around;
 }
