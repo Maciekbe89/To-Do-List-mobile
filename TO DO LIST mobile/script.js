@@ -10,7 +10,6 @@ const removeTask = (e) => {
     e.target.parentNode.remove();
     const index = e.target.parentNode.dataset.key;
     toDoList.splice(index, 1)
-    console.log(toDoList);
     taskNumber.textContent = listItems.length;
     renderList();
 }
@@ -39,11 +38,11 @@ const renderList = () => {
 }
 
 const inputSearch = document.querySelector('input.search');
-// const liElements = document.querySelectorAll('li');
+const liElements = document.querySelectorAll('li');
 
 const searchTask = (e) => {
     const searchText = e.target.value.toLowerCase();
-    let tasks = [...listItems];
+    let tasks = toDoList;
     tasks = tasks.filter(li => li.textContent.toLowerCase().includes(searchText));
     ul.textContent = "";
     tasks.forEach(task => ul.appendChild(task));
