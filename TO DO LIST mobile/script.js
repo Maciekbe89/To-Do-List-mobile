@@ -25,4 +25,16 @@ const addTask = (e) => {
     task.querySelector('button').addEventListener('click', removeTask);
 }
 
+const inputSearch = document.querySelector('input.search');
+// const liElements = document.querySelectorAll('li');
+
+const searchTask = (e) => {
+    const searchText = e.target.value.toLowerCase();
+    let tasks = [...listItems];
+    tasks = tasks.filter(li => li.textContent.toLowerCase().includes(searchText));
+    ul.textContent = "";
+    tasks.forEach(task => ul.appendChild(task));
+}
+
+inputSearch.addEventListener('input', searchTask);
 form.addEventListener('submit', addTask);
