@@ -12,6 +12,7 @@ h1 {
     font-family: 'kaushan script';
     text-align: center;
     color: #F2CB05;
+    margin-top: 10px;
 }
 
 .fa-clipboard-list {
@@ -42,13 +43,13 @@ input.add::placeholder,
 input.search::placeholder {
     color: white;
     font-family: 'oswald';
+    font-size: 14px;
     opacity: .4;
 }
 
 button {
     border: none;
     background-color: #444;
-    height: 30px;
 }
 
 .fa-plus-circle,
@@ -91,4 +92,15 @@ i {
     justify-content: space-between;
     margin-top: 15px;
     color: white;
+}
+
+
+@media (orientation: portrait) and (max-width: 359px) {
+
+    input.add,
+    input.search {
+        width: 200px;
+        padding: 12px;
+        margin: 20px 10px 20px 0;
+    }
 }

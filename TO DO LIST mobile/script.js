@@ -34,11 +34,11 @@ const renderList = () => {
     toDoList.forEach((toDoElement, key) => {
         toDoElement.dataset.key = key;
         ul.appendChild(toDoElement);
+        taskNumber.textContent = listItems.length;
     })
 }
 
 const inputSearch = document.querySelector('input.search');
-const liElements = document.querySelectorAll('li');
 
 const searchTask = (e) => {
     const searchText = e.target.value.toLowerCase();
