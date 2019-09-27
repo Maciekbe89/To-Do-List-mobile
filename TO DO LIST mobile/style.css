@@ -37,6 +37,8 @@ input.search {
     padding: 15px;
     border-radius: 10px;
     color: white;
+    outline: none;
+
 }
 
 input.add::placeholder,
@@ -50,6 +52,7 @@ input.search::placeholder {
 button {
     border: none;
     background-color: #444;
+    outline: none;
 }
 
 .fa-plus-circle,
@@ -62,7 +65,8 @@ button {
 .fa-minus-circle {
     color: #F2CB05;
     font-size: 26px;
-    padding-right: 35px;
+    padding-right: 15px;
+    padding-left: 30px;
 }
 
 .fa-dot-circle {
@@ -90,8 +94,9 @@ i {
     align-items: center;
     align-content: center;
     justify-content: space-between;
-    margin-top: 15px;
+    margin: 15px 15px 15px 0;
     color: white;
+    word-break: break-all;
 }
 
 
@@ -109,6 +114,10 @@ i {
         font-size: 12px;
     }
 
+    .task {
+        font-size: 18px;
+    }
+
     h1 {
         font-size: 26px;
 
@@ -122,6 +131,7 @@ i {
         width: 300px;
         padding: 20px;
         margin: 30px 10px 30px 0;
+        font-size: 17px;
     }
 
     input.add::placeholder,
