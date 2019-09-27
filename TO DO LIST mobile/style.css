@@ -72,7 +72,7 @@ button {
 .fa-dot-circle {
     color: #F2CB05;
     font-size: 10px;
-    padding: 0 20px 0 30px;
+    padding: 10px 20px 0 30px;
 }
 
 h2 {
@@ -88,12 +88,13 @@ i {
 
 
 .task {
-    display: flex;
+    display: grid;
     font-family: 'oswald', sans-serif;
     font-size: 20px;
-    align-items: center;
+    grid-template-columns: 1fr 6fr 1fr;
+    /* align-items: center;
     align-content: center;
-    justify-content: space-between;
+    justify-content: space-between; */
     margin: 15px 15px 15px 0;
     color: white;
     word-break: break-all;
