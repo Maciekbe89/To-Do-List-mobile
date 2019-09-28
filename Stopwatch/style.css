@@ -29,3 +29,22 @@
     background-image: linear-gradient(130deg, #FF9B8F 10%, #EC0A8A 100%);
     box-shadow: 0 10px 50px -10px;
 }
+
+button.start,
+button.reset {
+    position: absolute;
+    top: 26%;
+    left: 40%;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #EC0A8A;
+    letter-spacing: 2px;
+}
+
+button.reset {
+    left: 55%;
+}
