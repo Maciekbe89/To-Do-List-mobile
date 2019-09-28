@@ -1,0 +1,19 @@
+{
+    "short_name": "To Do List",
+    "name": "To Do List",
+    "icons": [{
+            "src": "img/icon.png",
+            "type": "image/png",
+            "sizes": "120x120"
+        },
+        {
+            "src": "img/favicon.ico",
+            "type": "image/png",
+            "sizes": "40x40"
+        }
+    ],
+
+    "display": "fullscreen",
+    "scope": "/list/",
+    "theme_color": "#404040"
+}

@@ -67,5 +67,8 @@ form.addEventListener('submit', addTask);
 
 window.onload = () => {
     const tasks = JSON.parse(localStorage.getItem('todo'));
+    if (!tasks) {
+        return;
+    }
     tasks.forEach(task => addTaskFromStorage(task));
 }
