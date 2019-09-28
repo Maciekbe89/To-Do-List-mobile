@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bgc {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(130deg, #FF9B8F 10%, #EC0A8A 100%);
+    align-items: center;
+    justify-content: center;
+}
+
+.fund {
+    display: flex;
+    width: 55vw;
+    height: 60vh;
+    background-color: #fff;
+    box-shadow: 0 10px 50px -10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.timerbgc {
+    width: 70%;
+    height: 50%;
+    background-image: linear-gradient(130deg, #FF9B8F 10%, #EC0A8A 100%);
+    box-shadow: 0 10px 50px -10px;
+}
