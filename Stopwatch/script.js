@@ -20,8 +20,10 @@ const timer = () => {
 
 const start = () => {
     time++;
-    panel.textContent = (time / 100).toFixed(2);
-
+    const totalTime = (time / 100).toFixed(2);
+    const minutes = Math.floor(totalTime / 60);
+    const seconds = totalTime - minutes * 60;
+    panel.textContent = (minutes > 0 ? minutes.toString().padStart(2, 0) + ':' : '') + seconds.toFixed(2).padStart(5, 0);
 }
 
 const reset = () => {
