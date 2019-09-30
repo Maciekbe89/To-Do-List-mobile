@@ -92,9 +92,6 @@ i {
     font-family: 'oswald', sans-serif;
     font-size: 20px;
     grid-template-columns: 1fr 6fr 1fr;
-    /* align-items: center;
-    align-content: center;
-    justify-content: space-between; */
     margin: 15px 15px 15px 0;
     color: white;
     word-break: break-all;

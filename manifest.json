@@ -2,7 +2,7 @@
     "short_name": "To Do List",
     "name": "To Do List app",
     "icons": [{
-            "src": "apple-touch-icon-120x120-precomposed.png",
+            "src": "touch-icon-iphone.png",
             "type": "image/png",
             "sizes": "120x120"
         },
