@@ -1,6 +1,7 @@
 const btnTime = document.querySelector('.start');
 const btnReset = document.querySelector('.reset');
 const panel = document.querySelector('.time div');
+const title = document.querySelector('title');
 
 let time = 0;
 let active = false;
@@ -24,7 +25,8 @@ const start = () => {
     const totalTime = ((Date.now() - time) / 1000).toFixed(2);
     const minutes = Math.floor(totalTime / 60);
     const seconds = totalTime - minutes * 60;
-    panel.textContent = (minutes > 0 ? minutes.toString().padStart(2, 0) + ':' : '') + seconds.toFixed(2).padStart(5, 0);
+
+    panel.textContent = title.textContent = (minutes > 0 ? minutes.toString().padStart(2, 0) + ':' : '') + seconds.toFixed(2).padStart(5, 0);
 }
 
 const reset = () => {
