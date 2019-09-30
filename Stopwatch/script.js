@@ -2,8 +2,8 @@ const btnTime = document.querySelector('.start');
 const btnReset = document.querySelector('.reset');
 const panel = document.querySelector('.time div');
 const title = document.querySelector('title');
-let offSet = 0;
 
+let offSet = 0;
 let time = false;
 let active = false;
 let idI;
@@ -34,6 +34,7 @@ const start = () => {
 
 const reset = () => {
     time = Date.now();
+    offSet = 0;
     panel.textContent = '-';
     active = false;
     btnTime.textContent = 'start';
