@@ -7,8 +7,8 @@ It is my first mobile app. I created that in vanilla javascript. Simple design a
 
 design:
 
-![img/screen2.png](img/screen2.png)
+![img/screen2a.png](img/screen2a.png)
 
 The app has also nice icon on home screen :grin:
 
-![img/screen1.png](img/screen1.png)
+![img/screen1a.png](img/screen1a.png)
